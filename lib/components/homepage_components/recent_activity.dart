@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:microflow/components/recent_activity_element.dart';
+import 'package:microflow/components/homepage_components/recent_activity_element.dart';
 
 class RecentActivity extends StatelessWidget {
   const RecentActivity({super.key});

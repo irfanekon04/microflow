@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:microflow/components/dashboard_tile.dart';
-import 'package:microflow/components/quick_action_button.dart';
-import 'package:microflow/components/recent_activity.dart';
+import 'package:microflow/components/homepage_components/dashboard_tile.dart';
+import 'package:microflow/components/homepage_components/quick_action_button.dart';
+import 'package:microflow/components/homepage_components/recent_activity.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
