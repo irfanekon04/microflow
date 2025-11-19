@@ -36,6 +36,7 @@ class AddMemberForm extends StatelessWidget {
           TextField(
             cursorColor: Colors.grey.shade800,
             decoration: InputDecoration(
+              isDense: true,
               filled: true,
               fillColor: Colors.grey.shade100,
               hintText: 'Enter full name...',
@@ -60,6 +61,7 @@ class AddMemberForm extends StatelessWidget {
             cursorColor: Colors.grey.shade800,
             decoration: InputDecoration(
               filled: true,
+              isDense: true,
               fillColor: Colors.grey.shade100,
               hintText: '01XXXXXXXXX',
               enabledBorder: OutlineInputBorder(
@@ -79,6 +81,7 @@ class AddMemberForm extends StatelessWidget {
           TextField(
             cursorColor: Colors.grey.shade800,
             decoration: InputDecoration(
+              isDense: true,
               filled: true,
               fillColor: Colors.grey.shade100,
               hintText: 'example@email.com',
@@ -99,6 +102,7 @@ class AddMemberForm extends StatelessWidget {
           TextField(
             cursorColor: Colors.grey.shade800,
             decoration: InputDecoration(
+              isDense: true,
               filled: true,
               fillColor: Colors.grey.shade100,
               hintText: 'Enter full address...',

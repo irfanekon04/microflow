@@ -8,6 +8,7 @@ class SearchContainer extends StatelessWidget {
     return TextField(
       cursorColor: Colors.grey.shade800,
       decoration: InputDecoration(
+        isDense: true,
         filled: true,
         fillColor: Colors.grey.shade100,
 
