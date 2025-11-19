@@ -31,7 +31,7 @@ class MemberInfo extends StatelessWidget {
                 children: [
                   Text(
                     name,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                   Text(phone),
                 ],
@@ -62,7 +62,7 @@ class MemberInfo extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.only(left: 5),
+                  margin: EdgeInsets.only(right: 5),
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                     color: Colors.grey.shade100,
@@ -78,7 +78,7 @@ class MemberInfo extends StatelessWidget {
                       Text(
                         'Edit',
                         style: TextStyle(
-                          color: Colors.grey.shade800,
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

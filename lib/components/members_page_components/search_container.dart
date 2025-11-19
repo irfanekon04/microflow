@@ -10,13 +10,12 @@ class SearchContainer extends StatelessWidget {
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.grey.shade100,
-        // hoverColor: Colors.green.shade800,
-        // focusColor: Colors.green.shade800,
+
         hintText: 'Search members...',
         prefixIcon: Icon(Icons.search, size: 30),
-        border: OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.green.shade800),
+          borderSide: BorderSide(color: Colors.grey.shade300),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
