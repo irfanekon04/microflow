@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:microflow/components/lones_page_components/add_loans_form.dart';
+import 'package:microflow/components/loans_page_components/add_loans_form.dart';
+import 'package:microflow/components/loans_page_components/loans_card.dart';
 
 class LoansPage extends StatefulWidget {
   const LoansPage({super.key});
@@ -19,18 +20,18 @@ class _LoansPageState extends State<LoansPage> {
           child: Column(
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: .spaceBetween,
+                crossAxisAlignment: .center,
                 children: [
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: .start,
                     children: [
                       Text(
                         "Loans",
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 24,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: .bold,
                         ),
                       ),
                       Text(
@@ -63,7 +64,7 @@ class _LoansPageState extends State<LoansPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              // SizedBox(height: 20),
               AnimatedContainer(
                 duration: Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
@@ -77,7 +78,96 @@ class _LoansPageState extends State<LoansPage> {
                         },
                       ),
               ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blueAccent.shade100,
+                      elevation: 0,
+                      foregroundColor: Colors.black,
+                      shadowColor: Colors.white,
+                    ),
+                    child: Text("All"),
+                  ),
+                  SizedBox(width: 10),
+                  TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blueAccent.shade100,
+                      elevation: 0,
+                      foregroundColor: Colors.black,
+                      shadowColor: Colors.white,
+                    ),
+                    child: Text("Active"),
+                  ),
+                  SizedBox(width: 10),
+                  TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blueAccent.shade100,
+                      elevation: 0,
+                      foregroundColor: Colors.black,
+                      shadowColor: Colors.white,
+                    ),
+                    child: Text("Completed"),
+                  ),
+                  SizedBox(width: 10),
+                  TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blueAccent.shade100,
+                      elevation: 0,
+                      foregroundColor: Colors.black,
+                      shadowColor: Colors.white,
+                    ),
+                    child: Text("Overdue"),
+                  ),
+                  SizedBox(width: 8),
+                ],
+              ),
               SizedBox(height: 20),
+              LoansCard(
+                name: "Fatima Akter",
+                issued: "Jan 10, 2025",
+                balance: "50,000",
+                status: "Active",
+                loanAmount: "100,000",
+                interest: "5",
+              ),
+              LoansCard(
+                name: "Fatima Akter",
+                issued: "Jan 10, 2025",
+                balance: "50,000",
+                status: "Active",
+                loanAmount: "100,000",
+                interest: "5",
+              ),
+              LoansCard(
+                name: "Fatima Akter",
+                issued: "Jan 10, 2025",
+                balance: "50,000",
+                status: "Active",
+                loanAmount: "100,000",
+                interest: "5",
+              ),
+              LoansCard(
+                name: "Fatima Akter",
+                issued: "Jan 10, 2025",
+                balance: "0",
+                status: "Completed",
+                loanAmount: "100,000",
+                interest: "5",
+              ),
+              LoansCard(
+                name: "Fatima Akter",
+                issued: "Jan 10, 2025",
+                balance: "50,000",
+                status: "Overdue",
+                loanAmount: "100,000",
+                interest: "5",
+              ),
             ],
           ),
         ),

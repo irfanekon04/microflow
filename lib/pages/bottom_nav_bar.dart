@@ -22,14 +22,20 @@ class _BottomNavBarState extends State<BottomNavBar> {
     ReportsPage(),
   ];
   List<BottomNavigationBarItem> items = [
-    BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-    BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Members'),
+    BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: 'Home'),
+    BottomNavigationBarItem(icon: Icon(Icons.people_rounded), label: 'Members'),
     BottomNavigationBarItem(
-      icon: Icon(Icons.description_outlined),
+      icon: Icon(Icons.description_rounded),
       label: 'Loans',
     ),
-    BottomNavigationBarItem(icon: Icon(Icons.savings), label: 'Savings'),
-    BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Reports'),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.savings_rounded),
+      label: 'Savings',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.bar_chart_rounded),
+      label: 'Reports',
+    ),
   ];
   void onTap(int index) {
     setState(() {
