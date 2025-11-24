@@ -43,25 +43,25 @@ class _LoansPageState extends State<LoansPage> {
                       ),
                     ],
                   ),
-                  GestureDetector(
-                    onTap: () {
+                  FloatingActionButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadiusGeometry.circular(10),
+                    ),
+                    mini: true,
+                    onPressed: () {
                       setState(() {
                         showForm = !showForm;
                       });
                     },
-                    child: Container(
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.green.shade800,
-                      ),
-                      child: Icon(
-                        showForm ? Icons.add : Icons.remove,
-                        size: 30,
-                        color: Colors.white,
-                      ),
+                    backgroundColor: Colors.green.shade800,
+                    elevation: 0,
+                    child: Icon(
+                      showForm ? Icons.add : Icons.remove,
+                      size: 30,
+                      color: Colors.white,
                     ),
                   ),
+                 
                 ],
               ),
               // SizedBox(height: 20),

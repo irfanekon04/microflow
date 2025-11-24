@@ -152,39 +152,42 @@ class AddLoansForm extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: GestureDetector(
-                  onTap: onCancel,
-                  child: Container(
-                    margin: EdgeInsets.only(right: 5),
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Colors.grey.shade300),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 5.0),
+                  child: FilledButton(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: Colors.grey.shade100,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.grey.shade300),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
-                    child: Center(
-                      child: Text(
-                        'Cancel',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: .bold,
-                          color: Colors.black87,
-                        ),
+                    onPressed: onCancel,
+                    child: Text(
+                      'Cancel',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: .bold,
+                        color: Colors.black87,
                       ),
                     ),
                   ),
                 ),
               ),
               Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(right: 5),
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: Colors.green.shade800,
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.grey.shade300),
-                  ),
-                  child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 5.0),
+                  child: FilledButton(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: Colors.green.shade800,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.grey.shade300),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    onPressed: () {},
                     child: Text(
                       'Issue Loan',
                       style: TextStyle(
