@@ -61,7 +61,6 @@ class _LoansPageState extends State<LoansPage> {
                       color: Colors.white,
                     ),
                   ),
-                 
                 ],
               ),
               // SizedBox(height: 20),

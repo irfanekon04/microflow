@@ -1,9 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:microflow/components/savings_page_components/deposit_form.dart';
 import 'package:microflow/components/savings_page_components/savings_info.dart';
 import 'package:microflow/components/savings_page_components/savings_tile.dart';
+import 'package:microflow/components/savings_page_components/withdraw_form.dart';
 
 class SavingsPage extends StatelessWidget {
   const SavingsPage({super.key});
+
+  void _openDepositForm(BuildContext context) {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: IntrinsicHeight(child: DepositForm()),
+      ),
+    );
+  }
+
+  void _openWithdrawForm(BuildContext context) {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: IntrinsicHeight(child: WithdrawForm()),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +90,7 @@ class SavingsPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () => _openDepositForm(context),
                       label: Text(
                         'Deposit',
                         style: TextStyle(fontWeight: .w700),
@@ -78,7 +108,7 @@ class SavingsPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () => _openWithdrawForm(context),
                       label: Text(
                         'Withdraw',
                         style: TextStyle(fontWeight: .w700),

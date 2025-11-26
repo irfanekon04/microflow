@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:microflow/components/members_page_components/add_member_form.dart';
 import 'package:microflow/components/members_page_components/member_info.dart';
 import 'package:microflow/components/members_page_components/search_container.dart';
+import 'package:microflow/models/member.dart';
 
 class MembersPage extends StatefulWidget {
   const MembersPage({super.key});
@@ -62,7 +63,6 @@ class _MembersPageState extends State<MembersPage> {
                       color: Colors.white,
                     ),
                   ),
-                  
                 ],
               ),
               SizedBox(height: 20),
@@ -82,36 +82,45 @@ class _MembersPageState extends State<MembersPage> {
               SizedBox(height: 20),
               SearchContainer(),
               SizedBox(height: 20),
-              MemberInfo(
-                name: "Mohammad Rupom",
-                balance: '25,000',
-                phone: '+880 1517-235423',
-                memberSince: 'Jan 10, 2020',
-              ),
-              MemberInfo(
-                name: "Mohammad Rupom",
-                balance: '25,000',
-                phone: '+880 1517-235423',
-                memberSince: 'Jan 10, 2020',
-              ),
-              MemberInfo(
-                name: "Mohammad Rupom",
-                balance: '25,000',
-                phone: '+880 1517-235423',
-                memberSince: 'Jan 10, 2020',
-              ),
-              MemberInfo(
-                name: "Mohammad Rupom",
-                balance: '25,000',
-                phone: '+880 1517-235423',
-                memberSince: 'Jan 10, 2020',
-              ),
-              MemberInfo(
-                name: "Mohammad Rupom",
-                balance: '25,000',
-                phone: '+880 1517-235423',
-                memberSince: 'Jan 10, 2020',
-              ),
+              members.isEmpty
+                  ? Center(child: Text("NO MEMBER, add some!!"))
+                  : ListView.builder(
+                      itemCount: members.length,
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: (BuildContext context, int index) {
+                        return MemberInfo(
+                          name: members[index].name,
+                          phone: members[index].phone,
+                          balance: '',
+                          memberSince: '',
+                        );
+                      },
+                    ),
+              // MemberInfo(
+              //   name: "Mohammad Rupom",
+              //   balance: '25,000',
+              //   phone: '+880 1517-235423',
+              //   memberSince: 'Jan 10, 2020',
+              // ),
+              // MemberInfo(
+              //   name: "Mohammad Rupom",
+              //   balance: '25,000',
+              //   phone: '+880 1517-235423',
+              //   memberSince: 'Jan 10, 2020',
+              // ),
+              // MemberInfo(
+              //   name: "Mohammad Rupom",
+              //   balance: '25,000',
+              //   phone: '+880 1517-235423',
+              //   memberSince: 'Jan 10, 2020',
+              // ),
+              // MemberInfo(
+              //   name: "Mohammad Rupom",
+              //   balance: '25,000',
+              //   phone: '+880 1517-235423',
+              //   memberSince: 'Jan 10, 2020',
+              // ),
             ],
           ),
         ),

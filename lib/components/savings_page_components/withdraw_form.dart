@@ -1,31 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:microflow/models/member.dart';
 
-class AddMemberForm extends StatelessWidget {
-  final void Function()? onCancel;
-  AddMemberForm({super.key, required this.onCancel});
-
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-
-  void saveMember() {
-    addMember(
-      Member(
-        name: nameController.text,
-        phone: phoneController.text,
-        email: emailController.text,
-      ),
-    );
-    nameController.clear();
-    phoneController.clear();
-    emailController.clear();
-  }
+class WithdrawForm extends StatelessWidget {
+  const WithdrawForm({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.only(bottom: 24, top: 12, right: 12, left: 12),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey.shade300),
         color: Colors.white,
@@ -38,52 +19,29 @@ class AddMemberForm extends StatelessWidget {
             mainAxisAlignment: .spaceBetween,
             children: [
               Text(
-                "Add New Member",
+                "Record Withdraw",
                 style: TextStyle(fontSize: 18, fontWeight: .bold),
               ),
 
               IconButton(
-                onPressed: onCancel,
+                onPressed: () => Navigator.of(context).pop(context),
                 icon: Icon(Icons.close, color: Colors.grey.shade800),
               ),
             ],
           ),
           SizedBox(height: 20),
-          Text('Full Name', style: TextStyle(fontSize: 16, fontWeight: .w600)),
-          SizedBox(height: 8),
-          TextField(
-            controller: nameController,
-            cursorColor: Colors.grey.shade800,
-            decoration: InputDecoration(
-              isDense: true,
-              filled: true,
-              fillColor: Colors.grey.shade100,
-              hintText: 'Enter full name...',
-              enabledBorder: OutlineInputBorder(
-                borderRadius: .circular(12),
-                borderSide: BorderSide(color: Colors.grey.shade300),
-              ),
-
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(width: 2, color: Colors.green.shade800),
-              ),
-            ),
-          ),
-          SizedBox(height: 20),
           Text(
-            'Phone Number',
+            'Select Member',
             style: TextStyle(fontSize: 16, fontWeight: .w600),
           ),
           SizedBox(height: 8),
           TextField(
-            controller: phoneController,
             cursorColor: Colors.grey.shade800,
             decoration: InputDecoration(
-              filled: true,
               isDense: true,
+              filled: true,
               fillColor: Colors.grey.shade100,
-              hintText: '01XXXXXXXXX',
+              hintText: 'Select member...',
               enabledBorder: OutlineInputBorder(
                 borderRadius: .circular(12),
                 borderSide: BorderSide(color: Colors.grey.shade300),
@@ -96,16 +54,15 @@ class AddMemberForm extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          Text('E-mail', style: TextStyle(fontSize: 16, fontWeight: .w600)),
+          Text('Amount (৳)', style: TextStyle(fontSize: 16, fontWeight: .w600)),
           SizedBox(height: 8),
           TextField(
-            controller: emailController,
             cursorColor: Colors.grey.shade800,
             decoration: InputDecoration(
-              isDense: true,
               filled: true,
+              isDense: true,
               fillColor: Colors.grey.shade100,
-              hintText: 'example@email.com',
+              hintText: 'XXXXX',
               enabledBorder: OutlineInputBorder(
                 borderRadius: .circular(12),
                 borderSide: BorderSide(color: Colors.grey.shade300),
@@ -118,7 +75,11 @@ class AddMemberForm extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          Text('Address', style: TextStyle(fontSize: 16, fontWeight: .w600)),
+
+          Text(
+            'Transaction Date',
+            style: TextStyle(fontSize: 16, fontWeight: .w600),
+          ),
           SizedBox(height: 8),
           TextField(
             cursorColor: Colors.grey.shade800,
@@ -126,11 +87,32 @@ class AddMemberForm extends StatelessWidget {
               isDense: true,
               filled: true,
               fillColor: Colors.grey.shade100,
-              hintText: 'Enter full address...',
+              hintText: 'dd/mm/yyyy',
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide(color: Colors.grey.shade300),
               ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(width: 2, color: Colors.green.shade800),
+              ),
+            ),
+          ),
+          SizedBox(height: 20),
+          Text('Notes', style: TextStyle(fontSize: 16, fontWeight: .w600)),
+          SizedBox(height: 8),
+          TextField(
+            cursorColor: Colors.grey.shade800,
+            decoration: InputDecoration(
+              isDense: true,
+              filled: true,
+              fillColor: Colors.grey.shade100,
+              hintText: 'Add any notes...',
+              enabledBorder: OutlineInputBorder(
+                borderRadius: .circular(12),
+                borderSide: BorderSide(color: Colors.grey.shade300),
+              ),
+
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide(width: 2, color: Colors.green.shade800),
@@ -152,7 +134,7 @@ class AddMemberForm extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    onPressed: onCancel,
+                    onPressed: () => Navigator.of(context).pop(context),
                     child: Text(
                       'Cancel',
                       style: TextStyle(
@@ -169,16 +151,15 @@ class AddMemberForm extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 5.0),
                   child: FilledButton(
                     style: FilledButton.styleFrom(
-                      backgroundColor: Colors.green.shade800,
+                      backgroundColor: Colors.blueAccent.shade700,
                       elevation: 0,
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Colors.grey.shade300),
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    onPressed: saveMember,
+                    onPressed: () {},
                     child: Text(
-                      'Add Member',
+                      'Record Withdraw',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: .bold,
