@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AddLoansForm extends StatelessWidget {
-  final void Function()? onCancel;
-  const AddLoansForm({super.key, required this.onCancel});
+  const AddLoansForm({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10),
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.only(bottom: 24, top: 12, right: 12, left: 12),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey.shade300),
         color: Colors.white,
@@ -26,7 +24,7 @@ class AddLoansForm extends StatelessWidget {
               ),
 
               IconButton(
-                onPressed: onCancel,
+                onPressed: () => Navigator.pop(context),
                 icon: Icon(Icons.close, color: Colors.grey.shade800),
               ),
             ],
@@ -163,7 +161,7 @@ class AddLoansForm extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    onPressed: onCancel,
+                    onPressed: () => Navigator.pop(context),
                     child: Text(
                       'Cancel',
                       style: TextStyle(

@@ -1,6 +1,11 @@
+import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:microflow/components/loans_page_components/add_loans_form.dart';
 import 'package:microflow/components/loans_page_components/loans_card.dart';
+import 'package:microflow/components/loans_page_components/tab_bar_comp/active.dart';
+import 'package:microflow/components/loans_page_components/tab_bar_comp/all.dart';
+import 'package:microflow/components/loans_page_components/tab_bar_comp/completed.dart';
+import 'package:microflow/components/loans_page_components/tab_bar_comp/overdue.dart';
 
 class LoansPage extends StatefulWidget {
   const LoansPage({super.key});
@@ -11,10 +16,27 @@ class LoansPage extends StatefulWidget {
 
 class _LoansPageState extends State<LoansPage> {
   bool showForm = false;
+
+  void _openLoansForm(BuildContext context) {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: IntrinsicHeight(child: AddLoansForm()),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SingleChildScrollView(
+    return DefaultTabController(
+      length: 4,
+      initialIndex: 0,
+      child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
@@ -49,124 +71,46 @@ class _LoansPageState extends State<LoansPage> {
                     ),
                     mini: true,
                     onPressed: () {
-                      setState(() {
-                        showForm = !showForm;
-                      });
+                      _openLoansForm(context);
                     },
                     backgroundColor: Colors.green.shade800,
                     elevation: 0,
-                    child: Icon(
-                      showForm ? Icons.add : Icons.remove,
-                      size: 30,
-                      color: Colors.white,
-                    ),
+                    child: Icon(Icons.add, size: 30, color: Colors.white),
                   ),
                 ],
-              ),
-              // SizedBox(height: 20),
-              AnimatedContainer(
-                duration: Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-                child: showForm
-                    ? null
-                    : AddLoansForm(
-                        onCancel: () {
-                          setState(() {
-                            showForm = true;
-                          });
-                        },
-                      ),
               ),
               SizedBox(height: 10),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.blueAccent.shade100,
-                      elevation: 0,
-                      foregroundColor: Colors.black,
-                      shadowColor: Colors.white,
-                    ),
-                    child: Text("All"),
-                  ),
-                  SizedBox(width: 10),
-                  TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.blueAccent.shade100,
-                      elevation: 0,
-                      foregroundColor: Colors.black,
-                      shadowColor: Colors.white,
-                    ),
-                    child: Text("Active"),
-                  ),
-                  SizedBox(width: 10),
-                  TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.blueAccent.shade100,
-                      elevation: 0,
-                      foregroundColor: Colors.black,
-                      shadowColor: Colors.white,
-                    ),
-                    child: Text("Completed"),
-                  ),
-                  SizedBox(width: 10),
-                  TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.blueAccent.shade100,
-                      elevation: 0,
-                      foregroundColor: Colors.black,
-                      shadowColor: Colors.white,
-                    ),
-                    child: Text("Overdue"),
-                  ),
-                  SizedBox(width: 8),
+              ButtonsTabBar(
+                labelStyle: TextStyle(fontWeight: .w700, color: Colors.white),
+                unselectedLabelStyle: TextStyle(
+                  fontWeight: .w700,
+                  color: Colors.black87,
+                ),
+                radius: 25,
+                unselectedBackgroundColor: Colors.blueAccent.shade100,
+                backgroundColor: Colors.green.shade800,
+                buttonMargin: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                tabs: [
+                  Tab(text: "All"),
+                  Tab(text: "Active"),
+                  Tab(text: "Completed"),
+                  Tab(text: "Overdue"),
                 ],
               ),
-              SizedBox(height: 20),
-              LoansCard(
-                name: "Fatima Akter",
-                issued: "Jan 10, 2025",
-                balance: "50,000",
-                status: "Active",
-                loanAmount: "100,000",
-                interest: "5",
+
+              SizedBox(height: 10),
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    TabBarAll(),
+                    TabBarActive(),
+                    TabBarCompleted(),
+                    TabBarOverdue(),
+                  ],
+                ),
               ),
-              LoansCard(
-                name: "Fatima Akter",
-                issued: "Jan 10, 2025",
-                balance: "50,000",
-                status: "Active",
-                loanAmount: "100,000",
-                interest: "5",
-              ),
-              LoansCard(
-                name: "Fatima Akter",
-                issued: "Jan 10, 2025",
-                balance: "50,000",
-                status: "Active",
-                loanAmount: "100,000",
-                interest: "5",
-              ),
-              LoansCard(
-                name: "Fatima Akter",
-                issued: "Jan 10, 2025",
-                balance: "0",
-                status: "Completed",
-                loanAmount: "100,000",
-                interest: "5",
-              ),
-              LoansCard(
-                name: "Fatima Akter",
-                issued: "Jan 10, 2025",
-                balance: "50,000",
-                status: "Overdue",
-                loanAmount: "100,000",
-                interest: "5",
-              ),
+              SizedBox(height: 10),
             ],
           ),
         ),

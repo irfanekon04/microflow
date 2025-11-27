@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:microflow/components/members_page_components/add_member_form.dart';
 import 'package:microflow/components/members_page_components/member_info.dart';
 import 'package:microflow/components/members_page_components/search_container.dart';
@@ -37,7 +38,7 @@ class _MembersPageState extends State<MembersPage> {
                         ),
                       ),
                       Text(
-                        "Total : 4",
+                        'Total: ${members.length.toString()}',
                         style: TextStyle(
                           color: Color(0xFF929292),
                           fontSize: 16,
@@ -58,7 +59,7 @@ class _MembersPageState extends State<MembersPage> {
                     backgroundColor: Colors.green.shade800,
                     elevation: 0,
                     child: Icon(
-                      showForm ? Icons.add : Icons.remove,
+                      showForm ? Icons.remove : Icons.add,
                       size: 30,
                       color: Colors.white,
                     ),
@@ -70,20 +71,25 @@ class _MembersPageState extends State<MembersPage> {
                 duration: Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
                 child: showForm
-                    ? null
-                    : AddMemberForm(
+                    ? AddMemberForm(
                         onCancel: () {
                           setState(() {
-                            showForm = true;
+                            showForm = !showForm;
                           });
                         },
-                      ),
+                      )
+                    : null,
               ),
               SizedBox(height: 20),
               SearchContainer(),
               SizedBox(height: 20),
               members.isEmpty
-                  ? Center(child: Text("NO MEMBER, add some!!"))
+                  ? Center(
+                      child: Text(
+                        "NO MEMBER, ADD SOME!!",
+                        style: TextStyle(fontWeight: .w900, fontSize: 25),
+                      ),
+                    )
                   : ListView.builder(
                       itemCount: members.length,
                       physics: NeverScrollableScrollPhysics(),
@@ -92,8 +98,10 @@ class _MembersPageState extends State<MembersPage> {
                         return MemberInfo(
                           name: members[index].name,
                           phone: members[index].phone,
-                          balance: '',
-                          memberSince: '',
+                          balance: '0',
+                          memberSince: DateFormat(
+                            'dd/MM/yyyy',
+                          ).format(DateTime.now()),
                         );
                       },
                     ),

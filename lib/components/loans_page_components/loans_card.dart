@@ -52,7 +52,7 @@ class LoansCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Text(
-                  status,
+                  status.toUpperCase(),
                   style: TextStyle(
                     color: statusColors[status.toLowerCase()],
                     fontWeight: .w600,

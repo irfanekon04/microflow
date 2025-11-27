@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:microflow/components/homepage_components/dashboard_tile.dart';
 import 'package:microflow/components/homepage_components/quick_action_button.dart';
 import 'package:microflow/components/homepage_components/recent_activity.dart';
+import 'package:microflow/models/member.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -37,7 +38,7 @@ class Homepage extends StatelessWidget {
                 children: <Widget>[
                   DashboardTile(
                     title: "Total Members",
-                    subtitle: '1,245',
+                    subtitle: members.length.toString(),
                     iconBg: Colors.blue,
                     icon: Icons.group_outlined,
                   ),

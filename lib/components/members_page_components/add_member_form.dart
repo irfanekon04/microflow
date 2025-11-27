@@ -77,6 +77,7 @@ class AddMemberForm extends StatelessWidget {
           ),
           SizedBox(height: 8),
           TextField(
+            keyboardType: TextInputType.number,
             controller: phoneController,
             cursorColor: Colors.grey.shade800,
             decoration: InputDecoration(
