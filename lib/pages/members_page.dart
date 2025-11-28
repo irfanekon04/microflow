@@ -98,10 +98,15 @@ class _MembersPageState extends State<MembersPage> {
                         return MemberInfo(
                           name: members[index].name,
                           phone: members[index].phone,
-                          balance: '0',
+                          balance: members[index].balance,
                           memberSince: DateFormat(
                             'dd/MM/yyyy',
                           ).format(DateTime.now()),
+                          deleteFunction: () {
+                            setState(() {
+                              removeMember(index);
+                            });
+                          },
                         );
                       },
                     ),

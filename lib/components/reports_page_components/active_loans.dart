@@ -24,14 +24,14 @@ class ActiveLoans extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(
-                  Icons.info_outline_rounded,
+                  Icons.show_chart_rounded,
                   size: 25,
                   color: Colors.green.shade700,
                 ),
               ),
               SizedBox(width: 10),
               Text(
-                "Overdue Payments",
+                "Active Loans",
                 style: TextStyle(
                   color: Colors.black87,
                   fontSize: 18,
@@ -45,18 +45,16 @@ class ActiveLoans extends StatelessWidget {
             margin: .only(bottom: 10),
             padding: .all(12),
             decoration: BoxDecoration(
-              color: Colors.red.shade900.withValues(alpha: .03),
-              border: Border.all(
-                color: Colors.red.shade900.withValues(alpha: .25),
-              ),
+              border: Border.all(color: Colors.grey.shade300),
+              color: Color(0xFFf8f8f8),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Row(
-              mainAxisAlignment: .spaceBetween,
+            child: Column(
+              mainAxisAlignment: .spaceAround,
+              crossAxisAlignment: .start,
               children: [
-                Column(
+                Row(
                   mainAxisAlignment: .spaceBetween,
-                  crossAxisAlignment: .start,
                   children: [
                     Text(
                       "Hasan Ali",
@@ -65,23 +63,26 @@ class ActiveLoans extends StatelessWidget {
                     Text(
                       "৳ 15,000",
                       style: TextStyle(
-                        color: Colors.red.shade800,
+                        color: Colors.green.shade800,
                         fontSize: 16,
                         fontWeight: .w800,
                       ),
                     ),
                   ],
                 ),
-                Container(
-                  padding: .all(6),
-                  decoration: BoxDecoration(
-                    color: Colors.red.shade900.withValues(alpha: 0.20),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Text(
-                    '45 days',
-                    style: TextStyle(color: Colors.red.shade900, fontSize: 12),
-                  ),
+                SizedBox(height: 5),
+
+                LinearProgressIndicator(
+                  borderRadius: BorderRadius.circular(8),
+                  minHeight: 8,
+                  backgroundColor: Colors.grey.shade300,
+                  valueColor: AlwaysStoppedAnimation(Colors.green.shade800),
+                  value: 0.5,
+                ),
+                SizedBox(height: 5),
+                Text(
+                  '${(.5 * 100).round()}% repaid',
+                  style: TextStyle(fontSize: 13, color: Colors.grey.shade600),
                 ),
               ],
             ),
@@ -90,18 +91,16 @@ class ActiveLoans extends StatelessWidget {
             margin: .only(bottom: 10),
             padding: .all(12),
             decoration: BoxDecoration(
-              color: Colors.red.shade900.withValues(alpha: .03),
-              border: Border.all(
-                color: Colors.red.shade900.withValues(alpha: .25),
-              ),
+              border: Border.all(color: Colors.grey.shade300),
+              color: Color(0xFFf8f8f8),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Row(
-              mainAxisAlignment: .spaceBetween,
+            child: Column(
+              mainAxisAlignment: .spaceAround,
+              crossAxisAlignment: .start,
               children: [
-                Column(
+                Row(
                   mainAxisAlignment: .spaceBetween,
-                  crossAxisAlignment: .start,
                   children: [
                     Text(
                       "Hasan Ali",
@@ -110,23 +109,26 @@ class ActiveLoans extends StatelessWidget {
                     Text(
                       "৳ 15,000",
                       style: TextStyle(
-                        color: Colors.red.shade800,
+                        color: Colors.green.shade800,
                         fontSize: 16,
                         fontWeight: .w800,
                       ),
                     ),
                   ],
                 ),
-                Container(
-                  padding: .all(6),
-                  decoration: BoxDecoration(
-                    color: Colors.red.shade900.withValues(alpha: 0.20),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Text(
-                    '45 days',
-                    style: TextStyle(color: Colors.red.shade900, fontSize: 12),
-                  ),
+                SizedBox(height: 5),
+
+                LinearProgressIndicator(
+                  borderRadius: BorderRadius.circular(8),
+                  minHeight: 8,
+                  backgroundColor: Colors.grey.shade300,
+                  valueColor: AlwaysStoppedAnimation(Colors.green.shade800),
+                  value: 0.5,
+                ),
+                SizedBox(height: 5),
+                Text(
+                  '${(.5 * 100).round()}% repaid',
+                  style: TextStyle(fontSize: 13, color: Colors.grey.shade600),
                 ),
               ],
             ),
@@ -135,18 +137,16 @@ class ActiveLoans extends StatelessWidget {
             margin: .only(bottom: 10),
             padding: .all(12),
             decoration: BoxDecoration(
-              color: Colors.red.shade900.withValues(alpha: .03),
-              border: Border.all(
-                color: Colors.red.shade900.withValues(alpha: .25),
-              ),
+              border: Border.all(color: Colors.grey.shade300),
+              color: Color(0xFFf8f8f8),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Row(
-              mainAxisAlignment: .spaceBetween,
+            child: Column(
+              mainAxisAlignment: .spaceAround,
+              crossAxisAlignment: .start,
               children: [
-                Column(
+                Row(
                   mainAxisAlignment: .spaceBetween,
-                  crossAxisAlignment: .start,
                   children: [
                     Text(
                       "Hasan Ali",
@@ -155,23 +155,26 @@ class ActiveLoans extends StatelessWidget {
                     Text(
                       "৳ 15,000",
                       style: TextStyle(
-                        color: Colors.red.shade800,
+                        color: Colors.green.shade800,
                         fontSize: 16,
                         fontWeight: .w800,
                       ),
                     ),
                   ],
                 ),
-                Container(
-                  padding: .all(6),
-                  decoration: BoxDecoration(
-                    color: Colors.red.shade900.withValues(alpha: 0.20),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Text(
-                    '45 days',
-                    style: TextStyle(color: Colors.red.shade900, fontSize: 12),
-                  ),
+                SizedBox(height: 5),
+
+                LinearProgressIndicator(
+                  borderRadius: BorderRadius.circular(8),
+                  minHeight: 8,
+                  backgroundColor: Colors.grey.shade300,
+                  valueColor: AlwaysStoppedAnimation(Colors.green.shade800),
+                  value: 0.5,
+                ),
+                SizedBox(height: 5),
+                Text(
+                  '${(.5 * 100).round()}% repaid',
+                  style: TextStyle(fontSize: 13, color: Colors.grey.shade600),
                 ),
               ],
             ),
@@ -180,18 +183,16 @@ class ActiveLoans extends StatelessWidget {
             margin: .only(bottom: 10),
             padding: .all(12),
             decoration: BoxDecoration(
-              color: Colors.red.shade900.withValues(alpha: .03),
-              border: Border.all(
-                color: Colors.red.shade900.withValues(alpha: .25),
-              ),
+              border: Border.all(color: Colors.grey.shade300),
+              color: Color(0xFFf8f8f8),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Row(
-              mainAxisAlignment: .spaceBetween,
+            child: Column(
+              mainAxisAlignment: .spaceAround,
+              crossAxisAlignment: .start,
               children: [
-                Column(
+                Row(
                   mainAxisAlignment: .spaceBetween,
-                  crossAxisAlignment: .start,
                   children: [
                     Text(
                       "Hasan Ali",
@@ -200,23 +201,26 @@ class ActiveLoans extends StatelessWidget {
                     Text(
                       "৳ 15,000",
                       style: TextStyle(
-                        color: Colors.red.shade800,
+                        color: Colors.green.shade800,
                         fontSize: 16,
                         fontWeight: .w800,
                       ),
                     ),
                   ],
                 ),
-                Container(
-                  padding: .all(6),
-                  decoration: BoxDecoration(
-                    color: Colors.red.shade900.withValues(alpha: 0.20),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Text(
-                    '45 days',
-                    style: TextStyle(color: Colors.red.shade900, fontSize: 12),
-                  ),
+                SizedBox(height: 5),
+
+                LinearProgressIndicator(
+                  borderRadius: BorderRadius.circular(8),
+                  minHeight: 8,
+                  backgroundColor: Colors.grey.shade300,
+                  valueColor: AlwaysStoppedAnimation(Colors.green.shade800),
+                  value: 0.5,
+                ),
+                SizedBox(height: 5),
+                Text(
+                  '${(.5 * 100).round()}% repaid',
+                  style: TextStyle(fontSize: 13, color: Colors.grey.shade600),
                 ),
               ],
             ),

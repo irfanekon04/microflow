@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:microflow/models/member.dart';
 
 class AddMemberForm extends StatelessWidget {
-  final void Function()? onCancel;
+  final Function()? onCancel;
   AddMemberForm({super.key, required this.onCancel});
 
   final TextEditingController nameController = TextEditingController();

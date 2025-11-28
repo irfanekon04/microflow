@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:microflow/models/member.dart';
 
 class MemberInfo extends StatelessWidget {
-  final String name, phone, memberSince, balance;
-  const MemberInfo({
+  final String name, phone, memberSince;
+  final double balance;
+  Function()? deleteFunction;
+  MemberInfo({
     super.key,
     required this.name,
     required this.phone,
     required this.balance,
     required this.memberSince,
+    required this.deleteFunction,
   });
 
   @override
@@ -92,9 +96,7 @@ class MemberInfo extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  onPressed: () {
-                    print('delete');
-                  },
+                  onPressed: deleteFunction,
                   label: Text(
                     'Delete',
                     style: TextStyle(
