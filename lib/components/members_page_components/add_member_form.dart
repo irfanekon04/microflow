@@ -1,31 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:microflow/models/member.dart';
+import 'package:microflow/provider/member_provider.dart';
+import 'package:provider/provider.dart';
 
 class AddMemberForm extends StatelessWidget {
-  final Function()? onCancel;
-  AddMemberForm({super.key, required this.onCancel});
+  AddMemberForm({super.key});
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
 
-  void saveMember() {
-    addMember(
+  void saveMember(BuildContext context) {
+    context.read<MemberProvider>().addMember(
       Member(
         name: nameController.text,
         phone: phoneController.text,
         email: emailController.text,
+        address: addressController.text,
       ),
     );
     nameController.clear();
     phoneController.clear();
     emailController.clear();
+    addressController.clear();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.only(bottom: 24, top: 12, right: 12, left: 12),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey.shade300),
         color: Colors.white,
@@ -43,7 +47,7 @@ class AddMemberForm extends StatelessWidget {
               ),
 
               IconButton(
-                onPressed: onCancel,
+                onPressed: () => Navigator.pop(context),
                 icon: Icon(Icons.close, color: Colors.grey.shade800),
               ),
             ],
@@ -52,6 +56,7 @@ class AddMemberForm extends StatelessWidget {
           Text('Full Name', style: TextStyle(fontSize: 16, fontWeight: .w600)),
           SizedBox(height: 8),
           TextField(
+            keyboardType: .name,
             controller: nameController,
             cursorColor: Colors.grey.shade800,
             decoration: InputDecoration(
@@ -100,6 +105,7 @@ class AddMemberForm extends StatelessWidget {
           Text('E-mail', style: TextStyle(fontSize: 16, fontWeight: .w600)),
           SizedBox(height: 8),
           TextField(
+            keyboardType: .emailAddress,
             controller: emailController,
             cursorColor: Colors.grey.shade800,
             decoration: InputDecoration(
@@ -122,6 +128,8 @@ class AddMemberForm extends StatelessWidget {
           Text('Address', style: TextStyle(fontSize: 16, fontWeight: .w600)),
           SizedBox(height: 8),
           TextField(
+            keyboardType: .streetAddress,
+            controller: addressController,
             cursorColor: Colors.grey.shade800,
             decoration: InputDecoration(
               isDense: true,
@@ -153,7 +161,7 @@ class AddMemberForm extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    onPressed: onCancel,
+                    onPressed: () => Navigator.pop(context),
                     child: Text(
                       'Cancel',
                       style: TextStyle(
@@ -177,7 +185,7 @@ class AddMemberForm extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    onPressed: saveMember,
+                    onPressed: () => saveMember(context),
                     child: Text(
                       'Add Member',
                       style: TextStyle(

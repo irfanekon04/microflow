@@ -16,7 +16,7 @@ class SavingsPage extends StatelessWidget {
         padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
-        child: IntrinsicHeight(child: DepositForm()),
+        child: SingleChildScrollView(child: DepositForm()),
       ),
     );
   }
@@ -30,7 +30,7 @@ class SavingsPage extends StatelessWidget {
         padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
-        child: IntrinsicHeight(child: WithdrawForm()),
+        child: SingleChildScrollView(child: WithdrawForm()),
       ),
     );
   }
@@ -45,7 +45,7 @@ class SavingsPage extends StatelessWidget {
             crossAxisAlignment: .start,
             children: [
               Text(
-                "Members",
+                "Savings",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 24,
@@ -53,7 +53,7 @@ class SavingsPage extends StatelessWidget {
                 ),
               ),
               Text(
-                "Total : 4",
+                "Total Savings: ৳ 116,500",
                 style: TextStyle(color: Color(0xFF929292), fontSize: 16),
               ),
               SizedBox(height: 20),

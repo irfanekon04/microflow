@@ -3,7 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:microflow/components/members_page_components/add_member_form.dart';
 import 'package:microflow/components/members_page_components/member_info.dart';
 import 'package:microflow/components/members_page_components/search_container.dart';
-import 'package:microflow/models/member.dart';
+import 'package:microflow/provider/member_provider.dart';
+import 'package:provider/provider.dart';
 
 class MembersPage extends StatefulWidget {
   const MembersPage({super.key});
@@ -13,9 +14,23 @@ class MembersPage extends StatefulWidget {
 }
 
 class _MembersPageState extends State<MembersPage> {
-  bool showForm = false;
+  void _addMemberForm(BuildContext context) {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: SingleChildScrollView(child: AddMemberForm()),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final memberList = context.watch<MemberProvider>().members;
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
@@ -38,7 +53,7 @@ class _MembersPageState extends State<MembersPage> {
                         ),
                       ),
                       Text(
-                        'Total: ${members.length.toString()}',
+                        'Total: ${memberList.length.toString()}',
                         style: TextStyle(
                           color: Color(0xFF929292),
                           fontSize: 16,
@@ -51,39 +66,18 @@ class _MembersPageState extends State<MembersPage> {
                       borderRadius: BorderRadiusGeometry.circular(10),
                     ),
                     mini: true,
-                    onPressed: () {
-                      setState(() {
-                        showForm = !showForm;
-                      });
-                    },
+                    onPressed: () => _addMemberForm(context),
                     backgroundColor: Colors.green.shade800,
                     elevation: 0,
-                    child: Icon(
-                      showForm ? Icons.remove : Icons.add,
-                      size: 30,
-                      color: Colors.white,
-                    ),
+                    child: Icon(Icons.add, size: 30, color: Colors.white),
                   ),
                 ],
               ),
               SizedBox(height: 20),
-              AnimatedContainer(
-                duration: Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-                child: showForm
-                    ? AddMemberForm(
-                        onCancel: () {
-                          setState(() {
-                            showForm = !showForm;
-                          });
-                        },
-                      )
-                    : null,
-              ),
-              SizedBox(height: 20),
+
               SearchContainer(),
               SizedBox(height: 20),
-              members.isEmpty
+              memberList.isEmpty
                   ? Center(
                       child: Text(
                         "NO MEMBER, ADD SOME!!",
@@ -91,49 +85,23 @@ class _MembersPageState extends State<MembersPage> {
                       ),
                     )
                   : ListView.builder(
-                      itemCount: members.length,
+                      itemCount: memberList.length,
                       physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemBuilder: (BuildContext context, int index) {
                         return MemberInfo(
-                          name: members[index].name,
-                          phone: members[index].phone,
-                          balance: members[index].balance,
+                          name: memberList[index].name,
+                          phone: memberList[index].phone,
+                          balance: memberList[index].balance,
                           memberSince: DateFormat(
                             'dd/MM/yyyy',
                           ).format(DateTime.now()),
                           deleteFunction: () {
-                            setState(() {
-                              removeMember(index);
-                            });
+                            context.read<MemberProvider>().removeMember(index);
                           },
                         );
                       },
                     ),
-              // MemberInfo(
-              //   name: "Mohammad Rupom",
-              //   balance: '25,000',
-              //   phone: '+880 1517-235423',
-              //   memberSince: 'Jan 10, 2020',
-              // ),
-              // MemberInfo(
-              //   name: "Mohammad Rupom",
-              //   balance: '25,000',
-              //   phone: '+880 1517-235423',
-              //   memberSince: 'Jan 10, 2020',
-              // ),
-              // MemberInfo(
-              //   name: "Mohammad Rupom",
-              //   balance: '25,000',
-              //   phone: '+880 1517-235423',
-              //   memberSince: 'Jan 10, 2020',
-              // ),
-              // MemberInfo(
-              //   name: "Mohammad Rupom",
-              //   balance: '25,000',
-              //   phone: '+880 1517-235423',
-              //   memberSince: 'Jan 10, 2020',
-              // ),
             ],
           ),
         ),

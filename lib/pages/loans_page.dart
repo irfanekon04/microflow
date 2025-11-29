@@ -15,8 +15,6 @@ class LoansPage extends StatefulWidget {
 }
 
 class _LoansPageState extends State<LoansPage> {
-  bool showForm = false;
-
   void _openLoansForm(BuildContext context) {
     showModalBottomSheet(
       isScrollControlled: true,
@@ -26,7 +24,7 @@ class _LoansPageState extends State<LoansPage> {
         padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
-        child: IntrinsicHeight(child: AddLoansForm()),
+        child: SingleChildScrollView(child: AddLoansForm()),
       ),
     );
   }
@@ -37,11 +35,11 @@ class _LoansPageState extends State<LoansPage> {
       length: 4,
       initialIndex: 0,
       child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            children: [
-              Row(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
+              child: Row(
                 mainAxisAlignment: .spaceBetween,
                 crossAxisAlignment: .center,
                 children: [
@@ -79,40 +77,39 @@ class _LoansPageState extends State<LoansPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
-              ButtonsTabBar(
-                labelStyle: TextStyle(fontWeight: .w700, color: Colors.white),
-                unselectedLabelStyle: TextStyle(
-                  fontWeight: .w700,
-                  color: Colors.black87,
-                ),
-                radius: 25,
-                unselectedBackgroundColor: Colors.blueAccent.shade100,
-                backgroundColor: Colors.green.shade800,
-                buttonMargin: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-                contentPadding: EdgeInsets.symmetric(horizontal: 15),
-                tabs: [
-                  Tab(text: "All"),
-                  Tab(text: "Active"),
-                  Tab(text: "Completed"),
-                  Tab(text: "Overdue"),
+            ),
+            SizedBox(height: 10),
+            ButtonsTabBar(
+              labelStyle: TextStyle(fontWeight: .w700, color: Colors.white),
+              unselectedLabelStyle: TextStyle(
+                fontWeight: .w700,
+                color: Colors.black87,
+              ),
+              radius: 25,
+              unselectedBackgroundColor: Colors.blueAccent.shade100,
+              backgroundColor: Colors.green.shade800,
+              buttonMargin: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+              contentPadding: EdgeInsets.symmetric(horizontal: 15),
+              tabs: [
+                Tab(text: "All"),
+                Tab(text: "Active"),
+                Tab(text: "Completed"),
+                Tab(text: "Overdue"),
+              ],
+            ),
+
+            SizedBox(height: 10),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  TabBarAll(),
+                  TabBarActive(),
+                  TabBarCompleted(),
+                  TabBarOverdue(),
                 ],
               ),
-
-              SizedBox(height: 10),
-              Expanded(
-                child: TabBarView(
-                  children: [
-                    TabBarAll(),
-                    TabBarActive(),
-                    TabBarCompleted(),
-                    TabBarOverdue(),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

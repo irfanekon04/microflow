@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:microflow/components/homepage_components/dashboard_tile.dart';
 import 'package:microflow/components/homepage_components/quick_action_button.dart';
 import 'package:microflow/components/homepage_components/recent_activity.dart';
-import 'package:microflow/models/member.dart';
+import 'package:microflow/provider/member_provider.dart';
+import 'package:provider/provider.dart';
+
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
+  
 
   @override
+  
   Widget build(BuildContext context) {
+    final memberList = context.watch<MemberProvider>().members;
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
@@ -38,7 +43,7 @@ class Homepage extends StatelessWidget {
                 children: <Widget>[
                   DashboardTile(
                     title: "Total Members",
-                    subtitle: members.length.toString(),
+                    subtitle: memberList.length.toString(),
                     iconBg: Colors.blue,
                     icon: Icons.group_outlined,
                   ),
