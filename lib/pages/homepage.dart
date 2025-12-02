@@ -5,13 +5,10 @@ import 'package:microflow/components/homepage_components/recent_activity.dart';
 import 'package:microflow/provider/member_provider.dart';
 import 'package:provider/provider.dart';
 
-
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
-  
 
   @override
-  
   Widget build(BuildContext context) {
     final memberList = context.watch<MemberProvider>().members;
     return SafeArea(
@@ -76,16 +73,19 @@ class Homepage extends StatelessWidget {
               QuickActionButton(
                 color: Colors.green.shade500,
                 text: 'Add New Member',
+                onTap: () {},
               ),
               SizedBox(height: 10),
               QuickActionButton(
                 color: Colors.red.shade500,
                 text: 'Issue New Loan',
+                onTap: () {},
               ),
               SizedBox(height: 10),
               QuickActionButton(
                 color: Colors.purple.shade500,
                 text: 'Record Transaction',
+                onTap: () {},
               ),
               SizedBox(height: 20),
               Text(

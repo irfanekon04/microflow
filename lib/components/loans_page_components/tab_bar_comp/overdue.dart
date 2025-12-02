@@ -14,7 +14,7 @@ class TabBarOverdue extends StatelessWidget {
             LoansCard(
               name: "Fatima Akter",
               issued: "Jan 10, 2025",
-              balance: "50,000",
+              dueAmount: "50,000",
               status: "overdue",
               loanAmount: "100,000",
               interest: "5",
@@ -22,7 +22,7 @@ class TabBarOverdue extends StatelessWidget {
             LoansCard(
               name: "Fatima Akter",
               issued: "Jan 10, 2025",
-              balance: "50,000",
+              dueAmount: "50,000",
               status: "overdue",
               loanAmount: "100,000",
               interest: "5",
@@ -30,7 +30,7 @@ class TabBarOverdue extends StatelessWidget {
             LoansCard(
               name: "Fatima Akter",
               issued: "Jan 10, 2025",
-              balance: "50,000",
+              dueAmount: "50,000",
               status: "overdue",
               loanAmount: "100,000",
               interest: "5",
@@ -38,7 +38,7 @@ class TabBarOverdue extends StatelessWidget {
             LoansCard(
               name: "Fatima Akter",
               issued: "Jan 10, 2025",
-              balance: "0",
+              dueAmount: "0",
               status: "overdue",
               loanAmount: "100,000",
               interest: "5",
@@ -46,7 +46,7 @@ class TabBarOverdue extends StatelessWidget {
             LoansCard(
               name: "Fatima Akter",
               issued: "Jan 10, 2025",
-              balance: "50,000",
+              dueAmount: "50,000",
               status: "overdue",
               loanAmount: "100,000",
               interest: "5",

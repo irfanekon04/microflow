@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class LoansCard extends StatelessWidget {
-  final String name, issued, status, balance, loanAmount, interest;
+  final String name, issued, status, dueAmount, loanAmount, interest;
   LoansCard({
     super.key,
     required this.name,
     required this.issued,
-    required this.balance,
+    required this.dueAmount,
     required this.status,
     required this.loanAmount,
     required this.interest,
@@ -81,9 +81,9 @@ class LoansCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Remaining Balance'),
+              Text('Due Amount'),
               Text(
-                '৳ $balance',
+                '৳ $dueAmount',
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.green.shade800,

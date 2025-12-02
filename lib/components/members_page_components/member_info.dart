@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:microflow/models/member.dart';
 
 class MemberInfo extends StatelessWidget {
   final String name, phone, memberSince;
   final double balance;
-  Function()? deleteFunction;
-  MemberInfo({
+  final Function()? deleteFunction;
+  const MemberInfo({
     super.key,
     required this.name,
     required this.phone,
@@ -62,7 +61,7 @@ class MemberInfo extends StatelessWidget {
           Divider(),
 
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: .spaceBetween,
             children: [
               Expanded(
                 child: FilledButton.icon(
@@ -73,9 +72,7 @@ class MemberInfo extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  onPressed: () {
-                    print('edit');
-                  },
+                  onPressed: () {},
                   label: Text(
                     'Edit',
                     style: TextStyle(

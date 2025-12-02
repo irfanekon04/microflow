@@ -3,15 +3,19 @@ import 'package:flutter/material.dart';
 class QuickActionButton extends StatelessWidget {
   final Color color;
   final String text;
+  final Function()? onTap;
 
-  const QuickActionButton({super.key, required this.color, required this.text});
+  const QuickActionButton({
+    super.key,
+    required this.color,
+    required this.text,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        print("Quick Action Button Tapped ");
-      },
+      onTap: onTap,
       child: Container(
         height: 50,
         decoration: BoxDecoration(

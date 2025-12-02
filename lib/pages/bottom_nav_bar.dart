@@ -41,7 +41,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
     setState(() {
       _selectedIndex = index;
     });
-    print(_selectedIndex);
   }
 
   @override

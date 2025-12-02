@@ -1,7 +1,6 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:microflow/components/loans_page_components/add_loans_form.dart';
-import 'package:microflow/components/loans_page_components/loans_card.dart';
 import 'package:microflow/components/loans_page_components/tab_bar_comp/active.dart';
 import 'package:microflow/components/loans_page_components/tab_bar_comp/all.dart';
 import 'package:microflow/components/loans_page_components/tab_bar_comp/completed.dart';

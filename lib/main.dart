@@ -5,11 +5,18 @@ import 'package:microflow/pages/loans_page.dart';
 import 'package:microflow/pages/members_page.dart';
 import 'package:microflow/pages/reports_page.dart';
 import 'package:microflow/pages/savings_page.dart';
+import 'package:microflow/provider/loan_provider.dart';
 import 'package:microflow/provider/member_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(
-  ChangeNotifierProvider(create: (_) => MemberProvider(), child: MyApp()),
+  MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => MemberProvider()),
+      ChangeNotifierProvider(create: (_) => LoanProvider()),
+    ],
+    child: MyApp(),
+  ),
 );
 
 class MyApp extends StatelessWidget {
@@ -21,11 +28,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MicroFlow',
       routes: {
-        '/homePage': (context) => Homepage(),
-        '/membersPage': (context) => MembersPage(),
-        '/loansPage': (context) => LoansPage(),
-        '/reportsPage': (context) => ReportsPage(),
-        '/savingsPage': (context) => SavingsPage(),
+        '/home_page': (context) => Homepage(),
+        '/members_page': (context) => MembersPage(),
+        '/loans_page': (context) => LoansPage(),
+        '/reports_page': (context) => ReportsPage(),
+        '/savings_page': (context) => SavingsPage(),
       },
       home: BottomNavBar(),
     );

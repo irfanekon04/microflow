@@ -4,26 +4,31 @@ import 'package:microflow/models/member.dart';
 class MemberProvider extends ChangeNotifier {
   final _members = [
     Member(
+      id: 1,
       name: 'Irfan Mahmud',
       phone: '01517956334',
       email: 'irfanekon@email.com',
     ),
     Member(
+      id: 2,
       name: 'Sidratul Muntaha',
       phone: '015730886257',
       email: 'smuntaha@email.com',
     ),
     Member(
+      id: 3,
       name: 'Ishan Mahmud',
       phone: '01385654559',
       email: 'ishanm@email.com',
     ),
     Member(
-      name: 'Nusrat Chaity',
+      id: 4,
+      name: 'Noureen Samantha',
       phone: '01813256325',
-      email: 'nusratchaity@email.com',
+      email: 'nsamantha@email.com',
     ),
     Member(
+      id: 5,
       name: 'Azharul Zishan',
       phone: '01595596324',
       email: 'azhar300@email.com',
@@ -32,13 +37,16 @@ class MemberProvider extends ChangeNotifier {
 
   List<Member> get members => _members;
 
+  int _idGenerator = 1000;
   void addMember(Member member) {
-    members.add(member);
+    _members.add(
+      Member(id: _idGenerator++, name: member.name, phone: member.phone, email: member.email)
+    );
     notifyListeners();
   }
 
   void removeMember(int index) {
-    members.removeAt(index);
+    _members.removeAt(index);
     notifyListeners();
   }
 }

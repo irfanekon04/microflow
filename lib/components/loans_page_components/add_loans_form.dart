@@ -1,7 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:microflow/provider/loan_provider.dart';
+import 'package:provider/provider.dart';
 
 class AddLoansForm extends StatelessWidget {
-  const AddLoansForm({super.key});
+  AddLoansForm({super.key});
+
+  final TextEditingController memberIdController = TextEditingController();
+  final TextEditingController amountController = TextEditingController();
+  final TextEditingController interestController = TextEditingController();
+  final TextEditingController durationController = TextEditingController();
+
+  void saveLoan(BuildContext context) {
+    int? memberId = int.tryParse(memberIdController.text.trim());
+    double? amount = double.tryParse(amountController.text.trim());
+    double? interest = double.tryParse(interestController.text.trim());
+    int? duration = int.tryParse(durationController.text.trim());
+
+    context.read<LoanProvider>().issueLoan(
+      memberId: memberId!,
+      amount: amount!,
+      interest: interest!,
+      duration: duration!,
+    );
+    memberIdController.clear();
+    amountController.clear();
+    interestController.clear();
+    durationController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +61,7 @@ class AddLoansForm extends StatelessWidget {
           ),
           SizedBox(height: 8),
           TextField(
+            controller: memberIdController,
             cursorColor: Colors.grey.shade800,
             decoration: InputDecoration(
               isDense: true,
@@ -60,6 +86,7 @@ class AddLoansForm extends StatelessWidget {
           ),
           SizedBox(height: 8),
           TextField(
+            controller: amountController,
             cursorColor: Colors.grey.shade800,
             decoration: InputDecoration(
               filled: true,
@@ -89,6 +116,7 @@ class AddLoansForm extends StatelessWidget {
                     ),
                     SizedBox(height: 8),
                     TextField(
+                      controller: interestController,
                       cursorColor: Colors.grey.shade800,
                       decoration: InputDecoration(
                         isDense: true,
@@ -122,6 +150,7 @@ class AddLoansForm extends StatelessWidget {
                     ),
                     SizedBox(height: 8),
                     TextField(
+                      controller: durationController,
                       cursorColor: Colors.grey.shade800,
                       decoration: InputDecoration(
                         isDense: true,
@@ -185,7 +214,7 @@ class AddLoansForm extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () => saveLoan(context),
                     child: Text(
                       'Issue Loan',
                       style: TextStyle(
