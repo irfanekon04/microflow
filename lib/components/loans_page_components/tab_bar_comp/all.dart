@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:microflow/components/loans_page_components/loans_card.dart';
 import 'package:microflow/provider/loan_provider.dart';
+import 'package:microflow/provider/member_provider.dart';
 import 'package:provider/provider.dart';
 
 class TabBarAll extends StatelessWidget {
@@ -9,6 +11,7 @@ class TabBarAll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final loanList = context.watch<LoanProvider>().loans;
+    final memberProvider = context.watch<MemberProvider>();
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 24),
       child: loanList.isEmpty
@@ -16,62 +19,20 @@ class TabBarAll extends StatelessWidget {
           : ListView.builder(
               itemCount: loanList.length,
               itemBuilder: (context, index) {
+                final loan = loanList[index];
+                final memberName = memberProvider
+                    .getMemberById(loan.memberId)
+                    ?.name;
                 return LoansCard(
-                  name: loanList[index].memberId.toString(),
-                  issued: loanList[index].issueDate.toString(),
-                  dueAmount: loanList[index].dueAmount.toString(),
-                  status: 'Active',
-                  loanAmount: loanList[index].amount.toString(),
-                  interest: loanList[index].interest.toString(),
+                  name: memberName!,
+                  issued: DateFormat('dd/MM/yyyy').format(loan.issueDate),
+                  dueAmount: loan.dueAmount.toString(),
+                  status: loan.status,
+                  loanAmount: loan.amount.toString(),
+                  interest: loan.interest.toString(),
                 );
               },
             ),
-      // child: SingleChildScrollView(
-      //   child: Column(
-      //     children: [
-      //       LoansCard(
-      //         name: "Fatima Akter",
-      //         issued: "Jan 10, 2025",
-      //         balance: "50,000",
-      //         status: "Active",
-      //         loanAmount: "100,000",
-      //         interest: "5",
-      //       ),
-      //       LoansCard(
-      //         name: "Fatima Akter",
-      //         issued: "Jan 10, 2025",
-      //         balance: "50,000",
-      //         status: "Active",
-      //         loanAmount: "100,000",
-      //         interest: "5",
-      //       ),
-      //       LoansCard(
-      //         name: "Fatima Akter",
-      //         issued: "Jan 10, 2025",
-      //         balance: "50,000",
-      //         status: "Active",
-      //         loanAmount: "100,000",
-      //         interest: "5",
-      //       ),
-      //       LoansCard(
-      //         name: "Fatima Akter",
-      //         issued: "Jan 10, 2025",
-      //         balance: "0",
-      //         status: "Completed",
-      //         loanAmount: "100,000",
-      //         interest: "5",
-      //       ),
-      //       LoansCard(
-      //         name: "Fatima Akter",
-      //         issued: "Jan 10, 2025",
-      //         balance: "50,000",
-      //         status: "Overdue",
-      //         loanAmount: "100,000",
-      //         interest: "5",
-      //       ),
-      //     ],
-      //   ),
-      // ),
     );
   }
 }

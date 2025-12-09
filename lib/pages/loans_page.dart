@@ -5,6 +5,8 @@ import 'package:microflow/components/loans_page_components/tab_bar_comp/active.d
 import 'package:microflow/components/loans_page_components/tab_bar_comp/all.dart';
 import 'package:microflow/components/loans_page_components/tab_bar_comp/completed.dart';
 import 'package:microflow/components/loans_page_components/tab_bar_comp/overdue.dart';
+import 'package:microflow/provider/loan_provider.dart';
+import 'package:provider/provider.dart';
 
 class LoansPage extends StatefulWidget {
   const LoansPage({super.key});
@@ -54,7 +56,7 @@ class _LoansPageState extends State<LoansPage> {
                         ),
                       ),
                       Text(
-                        "Total Issued: ৳ 200,000",
+                        "Total Issued: ৳ ${context.watch<LoanProvider>().totalIssuedAmount}",
                         style: TextStyle(
                           color: Color(0xFF929292),
                           fontSize: 16,

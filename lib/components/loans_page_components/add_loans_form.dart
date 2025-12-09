@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:microflow/provider/loan_provider.dart';
+import 'package:microflow/provider/member_provider.dart';
 import 'package:provider/provider.dart';
 
-class AddLoansForm extends StatelessWidget {
-  AddLoansForm({super.key});
+class AddLoansForm extends StatefulWidget {
+  const AddLoansForm({super.key});
 
-  final TextEditingController memberIdController = TextEditingController();
+  @override
+  State<AddLoansForm> createState() => _AddLoansFormState();
+}
+
+class _AddLoansFormState extends State<AddLoansForm> {
+  int? memberId;
+
   final TextEditingController amountController = TextEditingController();
+
   final TextEditingController interestController = TextEditingController();
+
   final TextEditingController durationController = TextEditingController();
 
   void saveLoan(BuildContext context) {
-    int? memberId = int.tryParse(memberIdController.text.trim());
     double? amount = double.tryParse(amountController.text.trim());
     double? interest = double.tryParse(interestController.text.trim());
     int? duration = int.tryParse(durationController.text.trim());
@@ -22,14 +30,15 @@ class AddLoansForm extends StatelessWidget {
       interest: interest!,
       duration: duration!,
     );
-    memberIdController.clear();
     amountController.clear();
     interestController.clear();
     durationController.clear();
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
+    List members = context.watch<MemberProvider>().members;
     return Container(
       padding: EdgeInsets.only(bottom: 24, top: 12, right: 12, left: 12),
       decoration: BoxDecoration(
@@ -60,14 +69,12 @@ class AddLoansForm extends StatelessWidget {
             style: TextStyle(fontSize: 16, fontWeight: .w600),
           ),
           SizedBox(height: 8),
-          TextField(
-            controller: memberIdController,
-            cursorColor: Colors.grey.shade800,
+          DropdownButtonFormField(
             decoration: InputDecoration(
-              isDense: true,
               filled: true,
+              isDense: true,
               fillColor: Colors.grey.shade100,
-              hintText: 'Select member...',
+              hintText: 'Select Member...',
               enabledBorder: OutlineInputBorder(
                 borderRadius: .circular(12),
                 borderSide: BorderSide(color: Colors.grey.shade300),
@@ -78,7 +85,34 @@ class AddLoansForm extends StatelessWidget {
                 borderSide: BorderSide(width: 2, color: Colors.green.shade800),
               ),
             ),
+            items: members.map((m) {
+              return DropdownMenuItem(value: m.id, child: Text(m.name));
+            }).toList(),
+            onChanged: (value) {
+              setState(() {
+                memberId = value as int;
+              });
+            },
           ),
+          // TextField(
+          //   controller: memberIdController,
+          //   cursorColor: Colors.grey.shade800,
+          //   decoration: InputDecoration(
+          //     isDense: true,
+          //     filled: true,
+          //     fillColor: Colors.grey.shade100,
+          //     hintText: 'Select member...',
+          //     enabledBorder: OutlineInputBorder(
+          //       borderRadius: .circular(12),
+          //       borderSide: BorderSide(color: Colors.grey.shade300),
+          //     ),
+
+          //     focusedBorder: OutlineInputBorder(
+          //       borderRadius: BorderRadius.circular(12),
+          //       borderSide: BorderSide(width: 2, color: Colors.green.shade800),
+          //     ),
+          //   ),
+          // ),
           SizedBox(height: 20),
           Text(
             'Loan Amount (৳)',

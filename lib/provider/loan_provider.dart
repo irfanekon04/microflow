@@ -13,14 +13,14 @@ class LoanProvider extends ChangeNotifier {
     required int duration,
   }) {
     final interestAmount = amount * (interest / 100);
-    final dueAmount = amount + interestAmount;
+    final totalPayable = amount + interestAmount;
 
     final loan = Loan(
       id: _idGenerator++,
       memberId: memberId,
       amount: amount,
       interest: interest,
-      dueAmount: dueAmount,
+      dueAmount: totalPayable,
       issueDate: DateTime.now(),
       dueDate: DateTime.now().add(Duration(days: duration)),
     );
@@ -29,11 +29,16 @@ class LoanProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void repayLoan(int loanId) {
+  void repayLoan(int loanId, double amount) {
     final index = _loans.indexWhere((loan) => loan.id == loanId);
 
     if (index != -1) {
-      _loans[index].isPaid = true;
+      final loan = _loans[index];
+      loan.dueAmount -= amount;
+      if (loan.dueAmount <= 0) {
+        loan.dueAmount = 0;
+        loan.isPaid = true;
+      }
       notifyListeners();
     }
   }
@@ -42,15 +47,14 @@ class LoanProvider extends ChangeNotifier {
     return _loans.where((loan) => loan.memberId == memberId).toList();
   }
 
-  List<Loan> getActiveLoans() {
-    return _loans.where((loan) => !loan.isPaid).toList();
-  }
+  List<Loan> get activeLoans =>
+      _loans.where((l) => l.status == "Active").toList();
 
-  List<Loan> getOverdueLoans() {
-    return _loans.where((loan) {
-      return !loan.isPaid && loan.dueDate.isBefore(DateTime.now());
-    }).toList();
-  }
+  List<Loan> get overdueLoans =>
+      _loans.where((l) => l.status == "Overdue").toList();
+
+  List<Loan> get paidLoans =>
+      _loans.where((l) => l.status == "Completed").toList();
 
   double get totalIssuedAmount {
     double total = 0;

@@ -40,7 +40,12 @@ class MemberProvider extends ChangeNotifier {
   int _idGenerator = 1000;
   void addMember(Member member) {
     _members.add(
-      Member(id: _idGenerator++, name: member.name, phone: member.phone, email: member.email)
+      Member(
+        id: _idGenerator++,
+        name: member.name,
+        phone: member.phone,
+        email: member.email,
+      ),
     );
     notifyListeners();
   }
@@ -48,5 +53,9 @@ class MemberProvider extends ChangeNotifier {
   void removeMember(int index) {
     _members.removeAt(index);
     notifyListeners();
+  }
+
+  Member? getMemberById(int id) {
+    return _members.firstWhere((m) => m.id == id);
   }
 }

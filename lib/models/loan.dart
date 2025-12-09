@@ -4,6 +4,7 @@ class Loan {
   double amount;
   double interest;
   double dueAmount;
+  double totalPayable;
   DateTime issueDate;
   DateTime dueDate;
   bool isPaid;
@@ -16,6 +17,16 @@ class Loan {
     required this.dueAmount,
     required this.issueDate,
     required this.dueDate,
+    this.totalPayable = 0,
     this.isPaid = false,
   });
+
+  String get status {
+    if (isPaid) return "Completed";
+    // if (dueAmount <= 0) return "Completed";
+    final today = DateTime.now();
+    if (dueDate.isBefore(today)) return "Overdue";
+
+    return "Active";
+  }
 }

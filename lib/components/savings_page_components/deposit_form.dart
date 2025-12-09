@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:microflow/provider/member_provider.dart';
+import 'package:provider/provider.dart';
 
-class DepositForm extends StatelessWidget {
+class DepositForm extends StatefulWidget {
   const DepositForm({super.key});
 
   @override
+  State<DepositForm> createState() => _DepositFormState();
+}
+
+class _DepositFormState extends State<DepositForm> {
+  @override
   Widget build(BuildContext context) {
+    final members = context.watch<MemberProvider>().members;
+    int memberId;
     return Container(
       padding: EdgeInsets.only(bottom: 24, top: 12, right: 12, left: 12),
       decoration: BoxDecoration(
@@ -35,21 +44,12 @@ class DepositForm extends StatelessWidget {
             style: TextStyle(fontSize: 16, fontWeight: .w600),
           ),
           SizedBox(height: 8),
-          // DropdownButtonFormField<String>(
-          //   items: [
-          //     "Fatima Ahmed",
-          //     "Another Member",
-          //   ].map((m) => DropdownMenuItem(value: m, child: Text(m))).toList(),
-          //   onChanged: (v) {},
-          //   decoration: InputDecoration(labelText: "Select Member"),
-          // ),
-          TextField(
-            cursorColor: Colors.grey.shade800,
+          DropdownButtonFormField(
             decoration: InputDecoration(
-              isDense: true,
               filled: true,
+              isDense: true,
               fillColor: Colors.grey.shade100,
-              hintText: 'Select member...',
+              hintText: 'Select Member...',
               enabledBorder: OutlineInputBorder(
                 borderRadius: .circular(12),
                 borderSide: BorderSide(color: Colors.grey.shade300),
@@ -60,7 +60,34 @@ class DepositForm extends StatelessWidget {
                 borderSide: BorderSide(width: 2, color: Colors.green.shade800),
               ),
             ),
+            items: members.map((m) {
+              return DropdownMenuItem(value: m.id, child: Text(m.name));
+            }).toList(),
+            onChanged: (value) {
+              setState(() {
+                memberId = value as int;
+              });
+            },
           ),
+
+          // TextField(
+          //   cursorColor: Colors.grey.shade800,
+          //   decoration: InputDecoration(
+          //     isDense: true,
+          //     filled: true,
+          //     fillColor: Colors.grey.shade100,
+          //     hintText: 'Select member...',
+          //     enabledBorder: OutlineInputBorder(
+          //       borderRadius: .circular(12),
+          //       borderSide: BorderSide(color: Colors.grey.shade300),
+          //     ),
+
+          //     focusedBorder: OutlineInputBorder(
+          //       borderRadius: BorderRadius.circular(12),
+          //       borderSide: BorderSide(width: 2, color: Colors.green.shade800),
+          //     ),
+          //   ),
+          // ),
           SizedBox(height: 20),
           Text('Amount (৳)', style: TextStyle(fontSize: 16, fontWeight: .w600)),
           SizedBox(height: 8),
