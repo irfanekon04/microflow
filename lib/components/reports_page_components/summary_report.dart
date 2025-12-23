@@ -20,13 +20,13 @@ class SummaryReport extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.green.withValues(alpha: 0.25),
+                  color: Color(0xff088f60).withValues(alpha: 0.25),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(
                   Icons.bar_chart_rounded,
                   size: 25,
-                  color: Colors.green.shade700,
+                  color: Color(0xff088f60),
                 ),
               ),
               SizedBox(width: 10),
@@ -70,7 +70,7 @@ class SummaryReport extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: .w900,
-                        color: Colors.green.shade700,
+                        color: Color(0xff088f60),
                       ),
                     ),
                   ],
@@ -96,7 +96,7 @@ class SummaryReport extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: .w900,
-                        color: Colors.green.shade700,
+                        color: Color(0xff088f60),
                       ),
                     ),
                   ],
@@ -122,7 +122,7 @@ class SummaryReport extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: .w900,
-                        color: Colors.green.shade700,
+                        color: Color(0xff088f60),
                       ),
                     ),
                   ],
@@ -148,7 +148,7 @@ class SummaryReport extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: .w900,
-                        color: Colors.green.shade700,
+                        color: Color(0xff088f60),
                       ),
                     ),
                   ],

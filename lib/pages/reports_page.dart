@@ -55,7 +55,7 @@ class _ReportsPageState extends State<ReportsPage> {
               ),
               radius: 25,
               unselectedBackgroundColor: Colors.blueAccent.shade100,
-              backgroundColor: Colors.green.shade800,
+              backgroundColor: Color(0xff088f60),
               buttonMargin: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
               contentPadding: EdgeInsets.symmetric(horizontal: 15),
 

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:microflow/components/homepage_components/dashboard_tile.dart';
 import 'package:microflow/components/homepage_components/quick_action_button.dart';
@@ -7,6 +8,10 @@ import 'package:provider/provider.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
+
+  void signUserOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +23,36 @@ class Homepage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Welcome Back",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+              Row(
+                mainAxisAlignment: .spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: .start,
+                    children: [
+                      Text(
+                        "Welcome Back",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "Digital Micro-finance Management",
+                        style: TextStyle(
+                          color: Color(0xFF929292),
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
+                  ),
+                  IconButton(
+                    onPressed: signUserOut,
+                    icon: Icon(Icons.logout_rounded),
+                  ),
+                ],
               ),
-              Text(
-                "Digital Micro-finance Management",
-                style: TextStyle(color: Color(0xFF929292), fontSize: 18),
-              ),
+
               SizedBox(height: 20),
               GridView.count(
                 crossAxisSpacing: 10,
@@ -47,7 +70,7 @@ class Homepage extends StatelessWidget {
                   DashboardTile(
                     title: "Total Savings",
                     subtitle: '৳ 5.2M',
-                    iconBg: Colors.green,
+                    iconBg: Color(0xff088f60),
                     icon: Icons.attach_money,
                   ),
                   DashboardTile(
@@ -71,7 +94,7 @@ class Homepage extends StatelessWidget {
               ),
               SizedBox(height: 15),
               QuickActionButton(
-                color: Colors.green.shade500,
+                color: Color(0xff088f60),
                 text: 'Add New Member',
                 onTap: () {},
               ),

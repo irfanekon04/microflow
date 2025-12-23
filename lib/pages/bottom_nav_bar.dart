@@ -50,7 +50,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       body: IndexedStack(index: _selectedIndex, children: _screens),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.green.shade800,
+        selectedItemColor: Color(0xff088f60),
         unselectedItemColor: Colors.grey.shade800,
         currentIndex: _selectedIndex,
         onTap: onTap,

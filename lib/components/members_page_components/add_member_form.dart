@@ -71,7 +71,7 @@ class AddMemberForm extends StatelessWidget {
 
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(width: 2, color: Colors.green.shade800),
+                borderSide: BorderSide(width: 2, color: Color(0xff088f60)),
               ),
             ),
           ),
@@ -97,7 +97,7 @@ class AddMemberForm extends StatelessWidget {
 
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(width: 2, color: Colors.green.shade800),
+                borderSide: BorderSide(width: 2, color: Color(0xff088f60)),
               ),
             ),
           ),
@@ -120,7 +120,7 @@ class AddMemberForm extends StatelessWidget {
 
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(width: 2, color: Colors.green.shade800),
+                borderSide: BorderSide(width: 2, color: Color(0xff088f60)),
               ),
             ),
           ),
@@ -142,7 +142,7 @@ class AddMemberForm extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(width: 2, color: Colors.green.shade800),
+                borderSide: BorderSide(width: 2, color: Color(0xff088f60)),
               ),
             ),
           ),
@@ -178,7 +178,7 @@ class AddMemberForm extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 5.0),
                   child: FilledButton(
                     style: FilledButton.styleFrom(
-                      backgroundColor: Colors.green.shade800,
+                      backgroundColor: Color(0xff088f60),
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                         side: BorderSide(color: Colors.grey.shade300),

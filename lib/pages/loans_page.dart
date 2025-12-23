@@ -72,7 +72,7 @@ class _LoansPageState extends State<LoansPage> {
                     onPressed: () {
                       _openLoansForm(context);
                     },
-                    backgroundColor: Colors.green.shade800,
+                    backgroundColor: Color(0xff088f60),
                     elevation: 0,
                     child: Icon(Icons.add, size: 30, color: Colors.white),
                   ),
@@ -88,7 +88,7 @@ class _LoansPageState extends State<LoansPage> {
               ),
               radius: 25,
               unselectedBackgroundColor: Colors.blueAccent.shade100,
-              backgroundColor: Colors.green.shade800,
+              backgroundColor: Color(0xff088f60),
               buttonMargin: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
               contentPadding: EdgeInsets.symmetric(horizontal: 15),
               tabs: [

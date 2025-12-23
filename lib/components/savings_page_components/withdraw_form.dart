@@ -57,7 +57,7 @@ class _WithdrawFormState extends State<WithdrawForm> {
 
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(width: 2, color: Colors.green.shade800),
+                borderSide: BorderSide(width: 2, color: Color(0xff088f60)),
               ),
             ),
             items: members.map((m) {
@@ -86,7 +86,7 @@ class _WithdrawFormState extends State<WithdrawForm> {
 
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(width: 2, color: Colors.green.shade800),
+                borderSide: BorderSide(width: 2, color: Color(0xff088f60)),
               ),
             ),
           ),
@@ -110,7 +110,7 @@ class _WithdrawFormState extends State<WithdrawForm> {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(width: 2, color: Colors.green.shade800),
+                borderSide: BorderSide(width: 2, color: Color(0xff088f60)),
               ),
             ),
           ),
@@ -131,7 +131,7 @@ class _WithdrawFormState extends State<WithdrawForm> {
 
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(width: 2, color: Colors.green.shade800),
+                borderSide: BorderSide(width: 2, color: Color(0xff088f60)),
               ),
             ),
           ),

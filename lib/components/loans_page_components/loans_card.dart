@@ -13,7 +13,7 @@ class LoansCard extends StatelessWidget {
   });
 
   final statusColors = {
-    'completed': Colors.green.shade700,
+    'completed': Color(0xff088f60),
     'overdue': Colors.red.shade700,
     'active': Colors.blue.shade700,
   };
@@ -86,7 +86,7 @@ class LoansCard extends StatelessWidget {
                 '৳ $dueAmount',
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.green.shade800,
+                  color: Color(0xff088f60),
                   fontWeight: .w600,
                 ),
               ),

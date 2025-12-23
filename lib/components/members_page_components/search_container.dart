@@ -20,7 +20,7 @@ class SearchContainer extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(width: 2.5, color: Colors.green.shade800),
+          borderSide: BorderSide(width: 2.5, color: Color(0xff088f60)),
         ),
       ),
     );

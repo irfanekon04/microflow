@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "638170804330",
+    "project_id": "fir-demo-a8a96",
+    "storage_bucket": "fir-demo-a8a96.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638170804330:android:195f6887bdbf939bce1a13",
+        "android_client_info": {
+          "package_name": "com.example.microflow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSN4h0AsqJVmD4OlwzURfpxCUKZPR1o9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

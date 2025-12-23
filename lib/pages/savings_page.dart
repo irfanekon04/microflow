@@ -67,7 +67,7 @@ class SavingsPage extends StatelessWidget {
                   SavingsTile(
                     title: 'Total Deposits',
                     value: '৳ 150K',
-                    color: Colors.green.shade700,
+                    color: Color(0xff088f60),
                     icon: Icons.arrow_downward_rounded,
                   ),
                   SavingsTile(
@@ -84,7 +84,7 @@ class SavingsPage extends StatelessWidget {
                   Expanded(
                     child: FilledButton.icon(
                       style: FilledButton.styleFrom(
-                        backgroundColor: Colors.green.shade700,
+                        backgroundColor: Color(0xff088f60),
                         elevation: 0,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),

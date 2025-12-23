@@ -67,7 +67,7 @@ class _MembersPageState extends State<MembersPage> {
                     ),
                     mini: true,
                     onPressed: () => _addMemberForm(context),
-                    backgroundColor: Colors.green.shade800,
+                    backgroundColor: Color(0xff088f60),
                     elevation: 0,
                     child: Icon(Icons.add, size: 30, color: Colors.white),
                   ),

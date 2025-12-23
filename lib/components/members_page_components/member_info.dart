@@ -51,7 +51,7 @@ class MemberInfo extends StatelessWidget {
                 '৳ $balance',
                 style: TextStyle(
                   fontSize: 20,
-                  color: Colors.green.shade800,
+                  color: Color(0xff088f60),
                   fontWeight: FontWeight.bold,
                 ),
               ),
