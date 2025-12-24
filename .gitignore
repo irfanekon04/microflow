@@ -32,6 +32,11 @@ migrate_working_dir/
 .pub/
 /build/
 /coverage/
+lib/firebase_options.dart
+firebase-debug.log
+.firebaserc
+.firebase/
+
 
 # Symbolication related
 app.*.symbols

@@ -13,6 +13,7 @@ class _DepositFormState extends State<DepositForm> {
   @override
   Widget build(BuildContext context) {
     final members = context.watch<MemberProvider>().members;
+    // ignore: unused_local_variable
     int memberId;
     return Container(
       padding: EdgeInsets.only(bottom: 24, top: 12, right: 12, left: 12),
