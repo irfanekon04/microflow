@@ -7,14 +7,14 @@ import 'package:microflow/pages/members_page.dart';
 import 'package:microflow/pages/reports_page.dart';
 import 'package:microflow/pages/savings_page.dart';
 import 'package:microflow/pages/authentication/sign_up_page.dart';
+import 'package:microflow/provider/auth_provider.dart';
 import 'package:microflow/provider/loan_provider.dart';
 import 'package:microflow/provider/member_provider.dart';
+import 'package:microflow/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-
-// ...
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +25,10 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => MemberProvider()),
         ChangeNotifierProvider(create: (_) => LoanProvider()),
+        Provider<AuthService>(create: (_) => AuthService()),
+        ChangeNotifierProvider<ProviderAuth>(
+          create: (context) => ProviderAuth(context.read<AuthService>()),
+        ),
       ],
       child: MyApp(),
     ),
